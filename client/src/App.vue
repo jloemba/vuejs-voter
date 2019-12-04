@@ -1,20 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-   
-    <FetchVote/>
+    <router-link to="/">Home</router-link>
+    <router-link to="/register">Register</router-link>
+    <router-link to="/login">Login</router-link>
+    <router-view name="header"></router-view>
+    <router-view></router-view>
   </div>
 </template>
-
 <script>
 
-import FetchVote from './components/vote/FetchVote.vue'
+//import FetchVote from './components/vote/FetchVote.vue'
 
 export default {
-  name: 'app',
-  components: {
-    FetchVote
-  }
+  name: 'app'
 }
 </script>
 
