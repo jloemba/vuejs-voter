@@ -1407,6 +1407,14 @@ array-unique@^0.3.2:
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
 
+array.filter@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/array.filter/-/array.filter-0.1.6.tgz#c99a377d34d1ad3f3effa7e0cb5918b860df2ebb"
+  integrity sha1-yZo3fTTRrT8+/6fgy1kYuGDfLrs=
+  dependencies:
+    curry2 "^1.0.1"
+    selectn "^1.0.5"
+
 asn1.js@^4.0.0:
   version "4.10.1"
   resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-4.10.1.tgz#b9c2bf5805f1e64aadeed6df3a2bfafb5a73f5a0"
@@ -1670,6 +1678,11 @@ braces@^2.3.1, braces@^2.3.2:
     snapdragon-node "^2.0.1"
     split-string "^3.0.2"
     to-regex "^3.0.1"
+
+brackets2dots@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/brackets2dots/-/brackets2dots-1.1.0.tgz#3f3d40375fc660ce0fd004fa27d67b34f9469ac3"
+  integrity sha1-Pz1AN1/GYM4P0AT6J9Z7NPlGmsM=
 
 brorand@^1.0.1:
   version "1.1.0"
@@ -2338,6 +2351,11 @@ core-js@^3.3.2:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.1.tgz#76dd6828412900ab27c8ce0b22e6114d7ce21b18"
   integrity sha512-KX/dnuY/J8FtEwbnrzmAjUYgLqtk+cxM86hfG60LGiW3MmltIc2yAmDgBgEkfm0blZhUrdr1Zd84J2Y14mLxzg==
 
+core-js@^3.4.7:
+  version "3.4.7"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.7.tgz#57c35937da80fe494fbc3adcf9cf3dc00eb86b34"
+  integrity sha512-qaPVGw30J1wQ0GR3GvoPqlGf9GZfKKF4kFC7kiHlcsPTqH3txrs9crCp3ZiMAXuSenhz89Jnl4GZs/67S5VOSg==
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -2599,6 +2617,13 @@ current-script-polyfill@^1.0.0:
   resolved "https://registry.yarnpkg.com/current-script-polyfill/-/current-script-polyfill-1.0.0.tgz#f31cf7e4f3e218b0726e738ca92a02d3488ef615"
   integrity sha1-8xz35PPiGLBybnOMqSoC00iO9hU=
 
+curry2@^1.0.0, curry2@^1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/curry2/-/curry2-1.0.3.tgz#38191d55f1060bfea47ca08009385bb878f6612f"
+  integrity sha1-OBkdVfEGC/6kfKCACThbuHj2YS8=
+  dependencies:
+    fast-bind "^1.0.0"
+
 cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
@@ -2616,7 +2641,7 @@ de-indent@^1.0.2:
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
   integrity sha1-sgOOhG3DO6pXlhKNCAS0VbjB4h0=
 
-debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
+debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.5.2:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
@@ -2895,6 +2920,11 @@ dotenv@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
+dotsplit.js@^1.0.3:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dotsplit.js/-/dotsplit.js-1.1.0.tgz#25a239eabe922a91ffa5d2a172d6c9fb82451e02"
+  integrity sha1-JaI56r6SKpH/pdKhctbJ+4JFHgI=
 
 duplexer@^0.1.1:
   version "0.1.1"
@@ -3359,6 +3389,11 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
+
+fast-bind@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fast-bind/-/fast-bind-1.0.0.tgz#7fa9652cb3325f5cd1e252d6cb4f160de1a76e75"
+  integrity sha1-f6llLLMyX1zR4lLWy08WDeGnbnU=
 
 fast-deep-equal@^2.0.1:
   version "2.0.1"
@@ -6864,6 +6899,16 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
+
+selectn@^1.0.5:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/selectn/-/selectn-1.1.2.tgz#fc8acd91df3f45acb01891c6773ae529851d6b17"
+  integrity sha1-/IrNkd8/RaywGJHGdzrlKYUdaxc=
+  dependencies:
+    brackets2dots "^1.1.0"
+    curry2 "^1.0.0"
+    debug "^2.5.2"
+    dotsplit.js "^1.0.3"
 
 selfsigned@^1.10.7:
   version "1.10.7"

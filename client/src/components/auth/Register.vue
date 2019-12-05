@@ -1,9 +1,15 @@
 <template>
-    <h1>Inscription</h1>
+    <h1>Inscription  {{label}} </h1>
 </template>
 
 <script>
 export default {
-      name: 'Register'
+      name: 'Register',
+      data() {
+          return {label:"vuejs"}
+      },
+      beforeMount:function(){
+          console.log(this.$data)
+      }
 }
 </script>

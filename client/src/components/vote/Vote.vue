@@ -1,11 +1,12 @@
 <template>
     <h1>
-        Fiche descriptif d'un vote
+        <router-view></router-view>
     </h1>
 </template>
 
 
 <script>
+//import Axios from 'axios'
 export default {
       name: 'Vote'
 }
