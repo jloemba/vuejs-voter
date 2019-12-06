@@ -7,6 +7,9 @@
             <p>{{vote.description}}</p>
             Début : {{vote.start_date | formatDate}}  <br>
             Clôture :  {{vote.end_date | formatDate}} 
+            <p> _____ </p>
+            <p><a v-bind:href="'/vote/update/'+ vote.uuid">Éditer ce sujet de vote </a></p>
+            <p><a v-bind:href="'/vote/delete/'+ vote.uuid">Supprimer ce sujet de vote </a></p>
         </div>
         <div v-else>
             <span>{{msg}}</span>
@@ -30,10 +33,10 @@ export default {
               .get('http://localhost:8081/api/vote/show/'+this.id)
               .then(response => {
                     if(response.data.status){
+                        console.log(response.data)
                         this.vote = response.data.vote
-                        
-
                     }else{
+                        console.log(response.data.message)
                         this.msg = response.data.message
                     }               
                })

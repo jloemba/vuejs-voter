@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>{{msg}}</h1>
+        <p><a v-bind:href="'/vote/create/'">Créer un sujet de vote </a></p>
         <ul>
             <li style="list-style:none;"
             v-for="l in list"
