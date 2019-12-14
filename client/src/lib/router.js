@@ -11,6 +11,8 @@ import Single from "../components/vote/Single";  // Afficher les informations d'
 import Edit from "../components/vote/Edit";  // Éditer un sujet de vote
 import Create from "../components/vote/Create";   // Créer un sujet de vote
 import Delete from "../components/vote/Delete";  // Supprimer un sujet de vote
+import Submit from "../components/vote/Submit"
+
 
 const router = new VueRouter({
     mode: "history",
@@ -66,8 +68,15 @@ const router = new VueRouter({
                     })
                 },
                 {
-                    path: ":voteid", 
+                    path: ":voteid/", 
                     component: Single,
+                    props: (route) =>  ({
+                        id: route.params.voteid
+                    })
+                },
+                {
+                    path: "submit/:voteid", 
+                    component: Submit,
                     props: (route) =>  ({
                         id: route.params.voteid
                     })

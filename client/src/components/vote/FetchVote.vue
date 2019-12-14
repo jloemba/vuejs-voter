@@ -12,12 +12,8 @@
             <h2><a v-bind:href="'/vote/'+ l.uuid">{{l.title}} </a></h2>
             <h3> {{l.description}} </h3>
             
-            <div v-if="l.UUIDVote">
-                Nombre de vote effectués : ...
-            </div>
-            <div v-else>
-                Nombre de vote effectués : 0
-
+            <div>
+                Nombre de vote effectués : {{l.uuid_votes.length }}
             </div>
 
             Début : {{l.start_date | formatDate}}<br>
