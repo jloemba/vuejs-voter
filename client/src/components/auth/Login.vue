@@ -1,9 +1,10 @@
 <template>
     <div>
-          <h1> Formulaire Formik</h1>
+          <h1>Formulaire Formik</h1>
 
-            <Formik ref="child" :parentProps="$props" @interface="parentData = $props;"  >
-            <form slot="form" @submit="handleSubmit" >
+            <Formik :parentProps="$props" @interface="parentData = $props;" v-on:submit.prevent="handleSubmit"  >
+            <form slot="form" @submit="handleSubmit">
+
                   <input
                   type="text"
                   value=""
@@ -25,16 +26,24 @@
                   v-model="password"
                   />
 
+                <!--  
+                  <MyInput inputType="text" inputValue="" inputPlaceholder="Votre nom d utilisateur" inputName="username"  @interface="inputValue = username;"  />
+
+                  <MyInput inputType="email" inputValue="" inputPlaceholder="Votre adresse mail" inputName="email"  @interface="inputValue = email;" />
+
+                  <MyInput inputType="password" inputValue="" inputPlaceholder="Votre mot de passe" inputName="password"  @interface="inputValue = password;" />
+                -->
                   <input type="submit" value="Submit">
+
             </form>
-             </Formik>
+            </Formik>
+
 
     </div>
 </template>
 
 <script>
-
-import Formik from '../../lib/Formik'
+import { vueBus } from '../../main';
 
 export default {
     name:"Login",
@@ -42,18 +51,17 @@ export default {
             password:String,
             username:String,
             email:String,
+            msg:String
     },
-    components:{Formik},
      methods:{
         handleSubmit(e){
                 e.preventDefault();
-                console.log(" Login component ")
-                //this.$refs.child.$props.parentProps = this.$props
+                //console.log(" Login component ")
                 //console.log(this.$props)
-                console.log(this.$refs.child.$props)
+                //console.log(this.$refs.child.$props)
+                vueBus.$emit('submit')
 
         }
-    
     }
 }
 </script>
