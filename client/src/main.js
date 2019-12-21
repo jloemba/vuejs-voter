@@ -23,7 +23,7 @@ Vue.filter('formatDate', function (value) {
 
 export const vueBus = new Vue();
 
-new Vue({
+export const vue = new Vue({
   router,
   render: h => h(App),
 }).$mount('#app')

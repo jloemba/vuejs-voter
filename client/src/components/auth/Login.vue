@@ -6,13 +6,6 @@
             <form slot="form" @submit="handleSubmit">
 
                   <input
-                  type="text"
-                  value=""
-                  placeholder="username"
-                  v-model="username"
-                  />
-
-                  <input
                   type="email"
                   value=""
                   placeholder="email"
@@ -37,17 +30,17 @@
 
             </form>
             </Formik>
-
-
     </div>
 </template>
 
 <script>
+
 import { vueBus } from '../../main';
 
 export default {
     name:"Login",
     props:{
+            case:String,
             password:String,
             username:String,
             email:String,
@@ -60,8 +53,10 @@ export default {
                 //console.log(this.$props)
                 //console.log(this.$refs.child.$props)
                 vueBus.$emit('submit')
-
         }
+    },
+    created(){
+      this.case = "login"
     }
 }
 </script>

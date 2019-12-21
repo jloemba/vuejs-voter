@@ -1,7 +1,8 @@
 import VueRouter from "vue-router";
 import Login from '../components/auth/Login';
 import Register from '../components/auth/Register';
-//import HeaderBoard from "../components/headers/header";
+
+import Profil from "../components/auth/Profil";
 
 
 import Vote from "../components/vote/Vote"; // Component parent pour Afficher , Créer , Supprimer et Modifier un sujet de vote
@@ -33,6 +34,11 @@ const router = new VueRouter({
           name:"Register",
           component:Register
         },
+        {
+            path:"/profil",
+            name:"Profil",
+            component:Profil
+          },
         {
             path: "/vote",
             name:"Vote",

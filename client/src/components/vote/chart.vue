@@ -26,19 +26,17 @@ export default {
     }
   },
   mounted: function() {
-      console.log(this.artists)
+      //console.log(this.artists)
 
     var svg = d3.select(this.$el);
     var width = +svg.attr('width');
     var height = +svg.attr('height');
 
-    var metricsA = this.artists.find(el => el === "Pour").length; 
-    console.log(metricsA)
+    var metricsA = this.artists.filter(el => el === "POUR").length; 
+
+    var metricsB = this.artists.filter(el => el === "CONTRE").length;
 
 
-    var metricsB = this.artists.find(el => el === "Contre").length;
-
-    console.log(metricsB)
     var data = [
       {name: 'one', val: metricsA },
       {name: 'two', val: metricsB},

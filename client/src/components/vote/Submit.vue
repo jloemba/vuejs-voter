@@ -37,7 +37,7 @@ export default {
               Axios
               .put('http://localhost:8081/api/vote/submit/',{
                   uuid: this.vote.uuid,
-                  uuid_votes:[this.vote.uuid.concat('||',this.submission)]
+                  uuid_votes:[localStorage.getItem('UUID').concat('||',this.submission)]
               })
               .then(response => {
                     this.msg = response.data.message

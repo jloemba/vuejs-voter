@@ -13,9 +13,16 @@
                 <p>Vous ne pouvez plus soumettre votre bulletin. Les votes sont clôs.</p>
             </div>
             <div v-else>
-                <p><a v-bind:href="'/vote/submit/'+ vote.uuid">Soumettre votre vote </a></p>
-                <p><a v-bind:href="'/vote/update/'+ vote.uuid">Éditer ce sujet de vote </a></p>
-                <p><a v-bind:href="'/vote/delete/'+ vote.uuid">Supprimer ce sujet de vote </a></p>
+                <div v-if="hasVoted()">
+                    <p><a v-bind:href="'/vote/submit/'+ vote.uuid">Soumettre votre vote </a></p>
+                </div>
+                <div v-else>
+                    <p>Vous avez soumis votre vote</p>
+                </div>
+                <div v-if="checkLevelAccess()">
+                  <p><a v-bind:href="'/vote/update/'+ vote.uuid">Éditer ce sujet de vote </a></p>
+                  <p><a v-bind:href="'/vote/delete/'+ vote.uuid">Supprimer ce sujet de vote </a></p>
+                </div>
             </div>
         </div>
         <div v-else>
@@ -36,9 +43,13 @@ export default {
           id:String,
           vote:{},
           msg:String,
-          ballotpaper:Array
-      }
-      ,
+          ballotpaper:Array,
+          voterList:Array
+      },
+      creted(){
+        
+
+      },
       methods:{
           getDataVote() {
 
@@ -51,9 +62,12 @@ export default {
                         //var ballotPaperExisting = response.data.vote.uuid_votes
                         //this.ballotpaper.push("dd")
                         var arr = []
+                        var voterID = []
                         for (let index = 0; index < response.data.vote.uuid_votes.length; index++) {
+                            voterID.push(response.data.vote.uuid_votes[index].split('||')[0])
                             arr.push(response.data.vote.uuid_votes[index].split('||')[1])
                         }
+                        this.voterList = voterID
                         this.vote.uuid_votes = arr
                         //console.log(this.vote.uuid_votes)
                     }else{
@@ -61,12 +75,30 @@ export default {
                         this.msg = response.data.message
                     }                   
                })
+          },
+          hasVoted:function(){ //pour vérifier si l'user a déjà voté
+                //console.log(this.voterList)
+                if(this.voterList.filter(el => el === localStorage.getItem('UUID')) > 0 ) return true
+                else return false
+          },
+          checkLevelAccess(){
+                if(localStorage.getItem('access_level')){
+                    //console.log(true)
+                    if(localStorage.getItem('access_level') == 2) return true
+                    else return false
+
+                }else{
+                    //console.log(false)
+                    return false
+                }
           }
       },
       beforeMount(){
           this.id = this.$route.params.voteid
-          this.getDataVote()
-          
+          this.getDataVote()    
+      },
+      updated(){
+          this.hasVoted()  
       }
 }
 </script>
