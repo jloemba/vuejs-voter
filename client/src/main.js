@@ -12,6 +12,8 @@ import MyInput from "./lib/MyInput"
 Vue.component("Formik",Formik)
 Vue.component("MyInput",MyInput)
 
+
+
 Vue.use(VueRouter);
 
 Vue.config.productionTip = false

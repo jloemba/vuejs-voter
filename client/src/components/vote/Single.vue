@@ -7,8 +7,8 @@
             <p>{{vote.description}}</p>
             <p>Début : {{vote.start_date | formatDate}} </p>
             <p> Clôture :  {{vote.end_date | formatDate}} </p>
-           
-            <Chart v-bind:artists="vote.uuid_votes" />
+            <PieChart v-bind:results="vote.uuid_votes" />
+           <!-- <Chart v-bind:artists="vote.uuid_votes" /> -->
             <div v-if=" Date.now() > new Date(vote.end_date) ">
                 <p>Vous ne pouvez plus soumettre votre bulletin. Les votes sont clôs.</p>
             </div>
@@ -24,31 +24,33 @@
                   <p><a v-bind:href="'/vote/delete/'+ vote.uuid">Supprimer ce sujet de vote </a></p>
                 </div>
             </div>
+
         </div>
         <div v-else>
             <span>{{msg}}</span>
         </div>
+
     </div>
 </template>
 
 <script>
-import Chart from './chart'
+//import Chart from './chart'
 import Axios from 'axios'
+import PieChart from './PieChart'
+
 export default {
       name: 'Single',
       components:{
-          Chart
+          PieChart
       },
       props:{
           id:String,
           vote:{},
           msg:String,
-          ballotpaper:Array,
           voterList:Array
       },
       creted(){
-        
-
+          this.results = []
       },
       methods:{
           getDataVote() {
@@ -57,21 +59,21 @@ export default {
               .get('http://localhost:8081/api/vote/show/'+this.id)
               .then(response => {
                     if(response.data.status){
-                        //console.log(response.data)
+                        
                         this.vote = response.data.vote
-                        //var ballotPaperExisting = response.data.vote.uuid_votes
-                        //this.ballotpaper.push("dd")
+
                         var arr = []
                         var voterID = []
                         for (let index = 0; index < response.data.vote.uuid_votes.length; index++) {
                             voterID.push(response.data.vote.uuid_votes[index].split('||')[0])
                             arr.push(response.data.vote.uuid_votes[index].split('||')[1])
                         }
+
                         this.voterList = voterID
                         this.vote.uuid_votes = arr
-                        //console.log(this.vote.uuid_votes)
+                        this.results = this.vote.uuid_votes
+
                     }else{
-                        //console.log(response.data.message)
                         this.msg = response.data.message
                     }                   
                })
@@ -95,10 +97,15 @@ export default {
       },
       beforeMount(){
           this.id = this.$route.params.voteid
-          this.getDataVote()    
+          this.getDataVote() 
+          console.log(this.uuid_votes)
       },
       updated(){
-          this.hasVoted()  
+          this.hasVoted()
+          this.results = this.vote.uuid_votes
+      },
+      beforeUpdate(){
+          this.results = this.vote.uuid_votes
       }
 }
 </script>
