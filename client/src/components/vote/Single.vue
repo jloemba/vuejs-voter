@@ -61,7 +61,7 @@ export default {
                     if(response.data.status){
                         
                         this.vote = response.data.vote
-
+                        console.log(this.vote)
                         var arr = []
                         var voterID = []
                         for (let index = 0; index < response.data.vote.uuid_votes.length; index++) {
@@ -79,9 +79,10 @@ export default {
                })
           },
           hasVoted:function(){ //pour vérifier si l'user a déjà voté
-                //console.log(this.voterList)
-                if(this.voterList.filter(el => el === localStorage.getItem('UUID')) > 0 ) return true
-                else return false
+                if(this.voterList != undefined){
+                    if(this.voterList.filter(el => el === localStorage.getItem('UUID')) > 0 ) return true
+                    else return false
+                }else return true
           },
           checkLevelAccess(){
                 if(localStorage.getItem('access_level')){
