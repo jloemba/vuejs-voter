@@ -61,7 +61,7 @@ export default {
                     if(response.data.status){
                         
                         this.vote = response.data.vote
-                        console.log(this.vote)
+                       
                         var arr = []
                         var voterID = []
                         for (let index = 0; index < response.data.vote.uuid_votes.length; index++) {
@@ -79,10 +79,10 @@ export default {
                })
           },
           hasVoted:function(){ //pour vérifier si l'user a déjà voté
-                if(this.voterList != undefined){
-                    if(this.voterList.filter(el => el === localStorage.getItem('UUID')) > 0 ) return true
+
+                    
+                    if(this.voterList.filter(el => el === localStorage.getItem('UUID') )) return true
                     else return false
-                }else return true
           },
           checkLevelAccess(){
                 if(localStorage.getItem('access_level')){
@@ -91,7 +91,7 @@ export default {
                     else return false
 
                 }else{
-                    //console.log(false)
+          
                     return false
                 }
           }
@@ -99,7 +99,7 @@ export default {
       beforeMount(){
           this.id = this.$route.params.voteid
           this.getDataVote() 
-          console.log(this.uuid_votes)
+          
       },
       updated(){
           this.hasVoted()
