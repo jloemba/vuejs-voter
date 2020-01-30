@@ -14,10 +14,10 @@
             </div>
             <div v-else>
                 <div v-if="hasVoted()">
-                    <p><a v-bind:href="'/vote/submit/'+ vote.uuid">Soumettre votre vote </a></p>
+                     <p>Vous avez soumis votre vote</p>
                 </div>
                 <div v-else>
-                    <p>Vous avez soumis votre vote</p>
+                                       <p><a v-bind:href="'/vote/submit/'+ vote.uuid">Soumettre votre vote </a></p>
                 </div>
                 <div v-if="checkLevelAccess()">
                   <p><a v-bind:href="'/vote/update/'+ vote.uuid">Éditer ce sujet de vote </a></p>
@@ -77,20 +77,21 @@ export default {
                     }                   
                })
           },
-          hasVoted:function(){ //pour vérifier si l'user a déjà voté
-                //if(this.voterList != undefined){
-                    if(this.voterList.filter(el => el === localStorage.getItem('UUID') )) return true
+          hasVoted:function(){ 
+                if(this.voterList != undefined){
+                    console.log(this.voterList)
+                    if(this.voterList.find(el => el === localStorage.getItem('UUID') )) return true
                     else return false
-                //}else return true
+                }
           },
           checkLevelAccess(){
                 if(localStorage.getItem('access_level')){
-                    //console.log(true)
+                
                     if(localStorage.getItem('access_level') == 2) return true
                     else return false
 
                 }else{
-                    //console.log(false)
+                 
                     return false
                 }
           }

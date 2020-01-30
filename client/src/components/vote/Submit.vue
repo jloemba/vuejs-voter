@@ -33,7 +33,7 @@ export default {
                   this.submissionVote()
           },
           submissionVote(){
-
+              //
               Axios
               .put('http://localhost:8081/api/vote/submit/',{
                   uuid: this.vote.uuid,
@@ -42,6 +42,8 @@ export default {
               .then(response => {
                     this.msg = response.data.message
                })
+
+               this.$router.push('/')
           },
           getDataVote() {
               Axios
