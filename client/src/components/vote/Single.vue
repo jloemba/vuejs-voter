@@ -19,11 +19,12 @@
                 <div v-else>
                                        <p><a v-bind:href="'/vote/submit/'+ vote.uuid">Soumettre votre vote </a></p>
                 </div>
-                <div v-if="checkLevelAccess()">
+                
+            </div>
+            <div v-if="checkLevelAccess()">
                   <p><a v-bind:href="'/vote/update/'+ vote.uuid">Éditer ce sujet de vote </a></p>
                   <p><a v-bind:href="'/vote/delete/'+ vote.uuid">Supprimer ce sujet de vote </a></p>
                 </div>
-            </div>
 
         </div>
         <div v-else>
