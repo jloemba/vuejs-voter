@@ -1,6 +1,11 @@
 <template>
     
     <div>
+
+            <section class="ftco-section">
+            <div class="container">
+            <div class="col-md-12 col-sm-12" >
+
         <div v-if="username != '' ">
 
             <h1>{{username}}</h1>
@@ -11,7 +16,7 @@
             <br>
             
             <p>  
-                <button @click="logout()">Vous déconnecter</button>
+                <button @click="logout()" class="btn btn-link">Vous déconnecter</button>
              </p>
         </div>
         <div>
@@ -19,9 +24,13 @@
             
         </div>
         
+        
+  </div>
+ 
+</div>
 
-    </div>
-
+</section>
+</div>
 </template>
 
 <script>

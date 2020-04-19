@@ -1,19 +1,53 @@
 <template>
   <div id="app">
 
-    <div v-if="user != 'Connexion' ">
-      <router-link to="/">Home</router-link>
-      <router-link to="/profil">{{user}}</router-link>
-      <router-view name="header"></router-view>
+	<section class="ftco-section pb-0">
+	<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+         <!-- <img src="./thumb_bigger_formation-vue-js.png" alt="VueJS logo"> -->
+      </div>
     </div>
-    <div v-else>
-      <router-link to="/">Home</router-link>
-      <router-link to="/register">Register</router-link>
-      <router-link to="/login">Login</router-link>
-      <router-view name="header"></router-view>
-    </div>
-    
+		<div class="row">
+      <div class="col-md-8 heading-title">
+        <h4> <b>Vuejs Voter</b> </h4>
+      </div>
+			<div class="col-md-2 heading-title">
+        
+      <div v-if="user != 'Connexion' ">
+          <router-link to="/">Accueil</router-link>
+          <router-link to="/profil">{{user}}</router-link>
+          <router-view name="header"></router-view>
+        </div>
+        <div v-else>
+          <router-link to="/">Accueil</router-link>
+          <router-link to="/register">S'inscrie</router-link>
+          <router-link to="/login">S'identifier</router-link>
+          <router-view name="header"></router-view>
+        </div>
+
+      </div>
+	</div>
+	</div>
+	</section>
+
+ 
+
+
+
+    <section class="ftco-section pb-0">
     <router-view></router-view>
+    </section>
+
+     <footer class="ftco-section ftco-section-2">
+   <div class="col-md-12 text-center">
+          <p class="mb-0">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy; All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+  </footer>
   </div>
 </template>
 <script>
@@ -58,7 +92,13 @@ export default {
 </script>
 
 <style>
-#app {
+
+a{
+    padding: 4px;
+    
+} 
+
+#menu {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

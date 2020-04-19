@@ -1,11 +1,15 @@
 <template>
     <div>
+
+            <section class="ftco-section">
+<div class="container">
+  <div class="col-md-12 col-sm-12" >
         <h1>{{msg}}</h1>
         <div v-if="checkLevelAccess()" >
             <p><a v-bind:href="'/vote/create/'">Créer un sujet de vote </a></p>
         </div>
-        <ul>
-            <li style="list-style:none;"
+  
+            <div style="list-style:none;"
             v-for="l in list"
             v-bind:key="l.ID"
             v-bind:title="l.title"
@@ -22,10 +26,15 @@
 
             Début : {{l.start_date | formatDate}}<br>
             Clôture :  {{l.end_date | formatDate}}
-            </li>
+            </div>
             ________
             <br>
-        </ul>
+      
+
+</div>
+  </div>
+           </section>
+
     </div>
 </template>
 

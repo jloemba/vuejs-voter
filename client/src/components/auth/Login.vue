@@ -1,23 +1,52 @@
 <template>
-    <div>
-          <h1>Formulaire Formik</h1>
+<div>
 
-            <Formik :parentProps="$props" @interface="parentData = $props;" v-on:submit.prevent="handleSubmit"  >
+
+<section class="ftco-section pb-0">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12 heading-title">
+            <h1>S'identifier</h1>
+        </div>
+  </div>
+  </div>
+  </section>
+
+<section class="ftco-section">
+<div class="container">
+  
+   <Formik :parentProps="$props" @interface="parentData = $props;" v-on:submit.prevent="handleSubmit"  >
             <form slot="form" @submit="handleSubmit">
 
-                  <input
-                  type="email"
-                  value=""
-                  placeholder="email"
-                  v-model="email"
-                  />
+	<div class="row">
+					<div class="col-lg-6 col-sm-6">    
+           
+                  <div class="form-group has-default">
+                    <input
+                        type="email"
+                        value=""
+                  placeholder="votre adresse mail"
+                        v-model="email"
+                        class="form-control"
+                        />
+
+                  </div>
+          </div>
+
+					<div class="col-lg-6 col-sm-6">    
+
+            <div class="form-group has-default">
 
                   <input
                   type="password"
                   value=""
-                  placeholder="password"
+                  placeholder="mot de passe"
                   v-model="password"
+                   class="form-control"
                   />
+            </div>
+             </div>
+               </div>
 
                 <!--  
                   <MyInput inputType="text" inputValue="" inputPlaceholder="Votre nom d utilisateur" inputName="username"  @interface="inputValue = username;"  />
@@ -26,11 +55,20 @@
 
                   <MyInput inputType="password" inputValue="" inputPlaceholder="Votre mot de passe" inputName="password"  @interface="inputValue = password;" />
                 -->
-                  <input type="submit" value="Submit">
+                  
+           
+              <button type="submit" class="btn btn-link" >Soumettre</button>     
 
             </form>
             </Formik>
-    </div>
+  </div>
+         
+            
+
+
+   
+  </section>
+  </div>
 </template>
 
 <script>
@@ -60,3 +98,9 @@ export default {
     }
 }
 </script>
+
+<style>
+
+
+
+</style>
