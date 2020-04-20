@@ -1,22 +1,36 @@
 <template>
     <div>
-
+           <section class="ftco-section">
+            <div class="container">
+            <div class="col-md-12 col-sm-12" >
         <h1>Edition d'un sujet de vote</h1>
 
         <!-- Si le vote existe -->
        <div v-if="vote">
            <!-- -->
             <form action="#">
-                <div class="grid-row">
-                        <label for="title">Titre</label>
-                        <input v-model="title" :placeholder="[[ vote.title ]]">
+                <div class="row">
+				<div class="col-lg-6 col-sm-6">    
+
+                      <div class="form-group has-default">
+                            <label for="title">Titre</label>
+                            <input v-model="title" :placeholder="[[ vote.title ]]" class="form-control">
+                            
+                    </div>
+
                 </div>
-                   
-                <div class="grid-row">
-                        <label for="title">Description</label>
-                        <textarea v-model="description" :placeholder="[[ vote.description ]]"></textarea>
+  
+                <div class="col-lg-12 col-sm-12">    
+
+                      <div class="form-group has-default">
+                            <label for="title">Description</label>
+                            <textarea v-model="description" :placeholder="[[ vote.description ]]" class="form-control"></textarea>
+                            
+                    </div> 
+                    <button @click="handleSubmit" class="btn btn-link">Editer</button>
+
                 </div> 
-                <button @click="handleSubmit">Editer</button>
+                </div> 
             </form>
 
 
@@ -27,7 +41,9 @@
         <p>{{msg}}</p>
         <!-- Sinon , "vote inexistant" -->
 
-
+     </div>
+            </div>
+        </section>
     </div>
 </template>
 

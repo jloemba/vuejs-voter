@@ -6,16 +6,21 @@
   <div class="col-md-12 col-sm-12" >
         <h1>{{msg}}</h1>
         <div v-if="checkLevelAccess()" >
-            <p><a v-bind:href="'/vote/create/'">Créer un sujet de vote </a></p>
+            <p>
+                <router-link :to="{ name: 'create'}">Créer un sujet de vote</router-link>
+            </p>
         </div>
   
             <div style="list-style:none;"
             v-for="l in list"
             v-bind:key="l.ID"
             v-bind:title="l.title"
+            id="single"
             >
             
-            <h2><a v-bind:href="'/vote/'+ l.uuid">{{l.title}} </a></h2>
+            <h2>
+                <router-link :to="{ name: 'single', params: { voteid: l.uuid }}">{{l.title}}</router-link>
+                </h2>
             <h3> {{l.description}} </h3>
             
             <div>
@@ -26,10 +31,10 @@
 
             Début : {{l.start_date | formatDate}}<br>
             Clôture :  {{l.end_date | formatDate}}
+        
             </div>
-            ________
-            <br>
-      
+        
+        
 
 </div>
   </div>
@@ -86,6 +91,10 @@ export default {
 ul{
     text-align: left;
     width: 60%;
+}
+
+#single{
+    margin:60px 0;
 }
 
 

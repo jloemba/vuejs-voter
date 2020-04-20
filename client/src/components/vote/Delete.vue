@@ -1,6 +1,8 @@
 <template>
     <div>
-        
+          <section class="ftco-section">
+            <div class="container">
+            <div class="col-md-12 col-sm-12" >
         <p>Voulez-vous vraiment supprimez le sujet <u>{{vote.title}}</u> ?</p>
             <br>
         <p>
@@ -11,6 +13,10 @@
             <p>{{msg}}</p>
         </div>
 
+
+     </div>
+            </div>
+        </section>
     </div>  
 </template>
 

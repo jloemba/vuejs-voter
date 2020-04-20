@@ -5,7 +5,7 @@ import Register from '../components/auth/Register';
 import Profil from "../components/auth/Profil";
 
 
-import Vote from "../components/vote/Vote"; // Component parent pour Afficher , Créer , Supprimer et Modifier un sujet de vote
+//import Vote from "../components/vote/Vote"; // Component parent pour Afficher , Créer , Supprimer et Modifier un sujet de vote
 
 import FetchVote from "../components/vote/FetchVote"; // Afficher tout les sujets de vote
 import Single from "../components/vote/Single";  // Afficher les informations d'un sujet de vote
@@ -40,56 +40,43 @@ const router = new VueRouter({
             component:Profil
           },
         {
-            path: "/vote",
-            name:"Vote",
-            component: Vote,
-            children: [
-                {
-                    path: "/", 
-                    name:"FetchVote",
-                    component: FetchVote
-                },
-                {
-                    path: "update/:voteid",
-                    name:"Edit",
+                    path: "/vote/update/:voteid",
+                    name:"edit",
                     component: Edit,
                     props: (route) =>  ({
                         id: route.params.voteid
                     })
                 },
                 {
-                    path: "delete/:voteid",
-                    name:"Delete",
+                    path: "/vote/delete/:voteid",
+                    name:"delete",
                     component: Delete,
                     props: (route) =>  ({
                         id: route.params.voteid
                     })
                 },
                 {
-                    path: "create/",
-                    name:"Create",
-                    component: Create,
-                    props: (route) =>  ({
-                        id: route.params.voteid
-                    })
+                    path: "/vote/create",
+                    name:"create",
+                    component: Create
                 },
                 {
-                    path: ":voteid/", 
+                    path: "/vote/:voteid", 
+                    name: 'single',
                     component: Single,
                     props: (route) =>  ({
                         id: route.params.voteid
                     })
                 },
                 {
-                    path: "submit/:voteid", 
+                    path: "/vote/submit/:voteid", 
+                    name: 'submit',
                     component: Submit,
                     props: (route) =>  ({
                         id: route.params.voteid
                     })
                 }
-            ]
-
-        }
+         
     ]
 });
 

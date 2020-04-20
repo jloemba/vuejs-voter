@@ -1,9 +1,12 @@
 <template>
     <div>
-    <h1>Information sur le sujet de vote </h1>
+           <section class="ftco-section">
+            <div class="container">
+            <div class="col-md-12 col-sm-12" >
+        <h1>{{vote.title}}</h1>
 
        <div class="vote-card" v-if="vote">
-            <p>{{vote.title}}</p> 
+            
             <p>{{vote.description}}</p>
             <p>Début : {{vote.start_date | formatDate}} </p>
             <p> Clôture :  {{vote.end_date | formatDate}} </p>
@@ -17,13 +20,17 @@
                      <p>Vous avez soumis votre vote</p>
                 </div>
                 <div v-else>
-                                       <p><a v-bind:href="'/vote/submit/'+ vote.uuid">Soumettre votre vote </a></p>
+                <router-link :to="{ name: 'submit', params: { voteid: vote.uuid }}">Soumettre votre vote</router-link>
                 </div>
                 
             </div>
             <div v-if="checkLevelAccess()">
-                  <p><a v-bind:href="'/vote/update/'+ vote.uuid">Éditer ce sujet de vote </a></p>
-                  <p><a v-bind:href="'/vote/delete/'+ vote.uuid">Supprimer ce sujet de vote </a></p>
+                    <p>
+                    <router-link :to="{ name: 'edit', params: { voteid: vote.uuid }}">Éditer ce sujet de vote</router-link>
+                    </p>
+                     <p>
+                    <router-link :to="{ name: 'delete', params: { voteid: vote.uuid }}">Supprimer ce sujet de vote</router-link>
+                    </p>
                 </div>
 
         </div>
@@ -31,6 +38,9 @@
             <span>{{msg}}</span>
         </div>
 
+            </div>
+            </div>
+        </section>
     </div>
 </template>
 
